@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,5 +10,35 @@ public partial class Default5 : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+        if (IsValid)
+        {
+
+            Response.Redirect("Default5.aspx");
+            
+
+        }
+
+    }
+    protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+             { 
+
+       int valor; 
+
+       valor = int.Parse(TextBox1.Text);
+
+       if (valor % 5 == 0)
+
+       args.IsValid = true;
+
+       else
+
+       args.IsValid = false; 
+
+   }
     }
 }
